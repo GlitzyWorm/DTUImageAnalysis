@@ -8,7 +8,12 @@ import pydicom as dicom
 ### Exercise 1: Read an image ###
 
 # Directory containing data and images
-in_dir = "DTUImageAnalysis/exercises/ex1-IntroductionToImageAnalysis/data/"
+
+# Non-PyCharm
+# in_dir = "DTUImageAnalysis/exercises/ex1-IntroductionToImageAnalysis/data/"
+
+# Pycharm
+in_dir = "/data"
 
 # X-ray image
 im_name = "metacarpals.png"
