@@ -2,13 +2,13 @@ import math
 
 ### Exercise 1 - Calculate the angle of a right-angled triangle
 
-# a = 10
-# b = 3
-#
-# theta_rad = math.atan2(a, b)
-# theta_deg = math.degrees(theta_rad)
-#
-# print(f"The angle of the right-angled triangle is {theta_deg:.2f} degrees")
+a = 10
+b = 3
+
+theta_rad = math.atan2(b, a)
+theta_deg = math.degrees(theta_rad)
+
+print(f"The angle of the right-angled triangle is {theta_deg:.2f} degrees")
 
 ### Exercise 2 - Calculate the distance from the lens to where the rays are focused (b) (where the CCD should be placed)
 def camera_b_distance(f, g):
@@ -19,7 +19,8 @@ def camera_b_distance(f, g):
     :param g: Object distance
     :return: b, the distance where the CCD should be placed
     """
-    b = (f * g) / (g - f)
+    #b = (f * g) / (g - f)
+    b = 1 / ((1 / f) - (1 / g))
     return b
 
 # Use the function to calculate the distance where the CCD should be placed when the focal length is 15mm
@@ -35,5 +36,3 @@ object_distances = [0.1, 1, 5, 15, 50, 100, 1000]
 for g in object_distances:
     b = camera_b_distance(f, g)
     print(f"The distance where the CCD should be placed when the object distance is {g} meters is {b:.4f} meters")
-
-
