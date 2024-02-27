@@ -4,6 +4,10 @@ from skimage import io
 import matplotlib.pyplot as plt
 from skimage.filters import median
 from skimage.filters import gaussian
+from skimage.filters import prewitt_h
+from skimage.filters import prewitt_v
+from skimage.filters import prewitt
+from skimage.filters import threshold_otsu
 
 # input_img = np.arange(25).reshape(5, 5)
 # print(input_img)
@@ -89,3 +93,88 @@ img = io.imread("data/Gaussian.png")
 #     gauss_img = gaussian(img, sigma, channel_axis=-1)
 #     plt.imshow(gauss_img)
 #     plt.show()
+
+# Exercise 8 and 9: Prewitt filtering
+
+# Load donald_1.png as grayscale and apply the prewitt filter to the image.
+# img = io.imread("data/donald_1.png", as_gray=True)
+
+# prewitt_img_h = prewitt_h(img)
+# prewitt_img_v = prewitt_v(img)
+
+# Print the values of the resulting images.
+# print(prewitt_img_h[:, :])
+# print(prewitt_img_v[:, :])
+
+# Prewitt filter
+# prewitt_img = prewitt(img)
+
+# Show the resulting images together with the input image. What do you observe?
+# Show as grayscale images.
+# fig, ax = plt.subplots(ncols=4)
+# ax[0].imshow(img, cmap="gray")
+# ax[1].imshow(prewitt_img_h, cmap="gray")
+# ax[2].imshow(prewitt_img_v, cmap="gray")
+# ax[3].imshow(prewitt_img, cmap="gray")
+# for a in ax:
+#     a.axis('off')
+# plt.tight_layout()
+# plt.show()
+
+# Exercise 10: Edge detection
+
+# Load ElbowCTSlice.png as grayscale
+img = io.imread("data/ElbowCTSlice.png", as_gray=True)
+
+# Show the image
+# io.imshow(img)
+# io.show()
+
+# Filter the image using either a Gaussian filter or a median filter
+
+# 1. Gaussian filter
+# sigma = 1
+# gauss_img = gaussian(img, sigma)
+
+# 2. Median filter
+# size = 5
+# footprint = np.ones([size, size])
+# med_img = median(img, footprint)
+
+# 3. Gaussian filter and Median filter
+# sigma = 1
+# gauss_img_2 = gaussian(img, sigma)
+# size = 5
+# footprint_2 = np.ones([size, size])
+# gauss_med_img = median(gauss_img_2, footprint_2)
+
+# 4. Median filter and Gaussian filter
+sigma = 2
+size = 10
+footprint_3 = np.ones([size, size])
+med_gauss_img = gaussian(median(img, footprint_3), sigma)
+
+# Compute the gradients in the filtered image using a Prewitt filter
+# prewitt_img = prewitt(gauss_img)
+# prewitt_img = prewitt(med_img)
+# prewitt_img = prewitt(gauss_med_img)
+prewitt_img = prewitt(med_gauss_img)
+
+# Use Otsu's thresholding method to compute a threshold, T, in the gradient image
+thresh = threshold_otsu(prewitt_img)
+
+# Apply the threshold, T, to the gradient image to create a binary image.
+binary_img = prewitt_img > thresh
+
+min_val = prewitt_img.min()
+max_val = prewitt_img.max()
+
+# Show the original image, the gradient image, and the binary image
+fig, ax = plt.subplots(ncols=3)
+ax[0].imshow(img, cmap="gray")
+ax[1].imshow(prewitt_img, cmap="gray")
+ax[2].imshow(binary_img, vmin=min_val, vmax=max_val, cmap="terrain")
+for a in ax:
+    a.axis('off')
+plt.tight_layout()
+plt.show()
