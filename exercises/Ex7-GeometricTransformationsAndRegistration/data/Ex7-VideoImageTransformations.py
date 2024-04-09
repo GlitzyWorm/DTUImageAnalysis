@@ -14,11 +14,15 @@ def show_in_moved_window(win_name, img, x, y):
     cv2.imshow(win_name, img)
 
 
+# def process_rgb_image(img, counter):
+#     """
+#     Simple processing of a color (RGB) image
+#     """
+#     return rotate(img, counter)
+
 def process_rgb_image(img, counter):
-    """
-    Simple processing of a color (RGB) image
-    """
-    return rotate(img, counter)
+    str = math.sin(counter / 10) * 10
+    return swirl(img, strength=str, radius=120)
 
 
 def capture_from_camera_and_show_images():
