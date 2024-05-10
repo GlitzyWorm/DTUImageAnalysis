@@ -7,7 +7,7 @@ from sklearn import decomposition
 ### Setup
 
 # Directory containing data and images
-in_dir = "exercises/ex1b-PCA/data/"
+in_dir = "data/"
 
 # Name of the text file containing the iris data
 txt_name = "irisdata.txt"
@@ -83,13 +83,13 @@ print(f"Covariance matrix computed by numpy:\n{C_X_np}") """
 values, vectors = np.linalg.eig(C_X) # Here c_x is your covariance matrix.
 
 ### Exercise 7
-""" v_norm = values  / values.sum() * 100
+v_norm = values  / values.sum() * 100
 plt.plot(v_norm)
 plt.xlabel('Principal component')
 plt.ylabel('Percent explained variance')
 plt.ylim([0, 100])
 
-plt.show() """
+plt.show()
 
 ### Exercise 8
 

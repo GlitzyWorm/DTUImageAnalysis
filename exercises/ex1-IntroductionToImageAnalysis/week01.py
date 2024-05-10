@@ -10,10 +10,10 @@ import pydicom as dicom
 # Directory containing data and images
 
 # Non-PyCharm
-# in_dir = "DTUImageAnalysis/exercises/ex1-IntroductionToImageAnalysis/data/"
+#in_dir = "DTUImageAnalysis/exercises/ex1-IntroductionToImageAnalysis/data/"
 
 # Pycharm
-in_dir = "/data"
+in_dir = "data/"
 
 # X-ray image
 im_name = "metacarpals.png"
