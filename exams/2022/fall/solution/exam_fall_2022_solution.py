@@ -21,8 +21,8 @@ from skimage.transform import matrix_transform
 
 # E2022
 def pca_on_car_data():
-    in_dir = "data/CarPCA/"
-    txt_name = "car_data.txt"
+    in_dir = "../data/CarPCA/"
+    txt_name = "car_../data.txt"
 
     car_data = np.loadtxt(in_dir + txt_name, comments="%")
     x = car_data
@@ -32,7 +32,7 @@ def pca_on_car_data():
 
     # plt.figure()
     # Transform the data into a Pandas dataframe
-    # d = pd.DataFrame(x)
+    # d = pd.dataFrame(x)
     # sns.pairplot(d)
     # plt.show()
 
@@ -65,7 +65,7 @@ def pca_on_car_data():
     # Answer 3
     plt.figure()
     # Transform the data into a Pandas dataframe
-    d = pd.DataFrame(pc_proj_red.T)
+    d = pd.dataFrame(pc_proj_red.T)
     sns.pairplot(d)
     # plt.savefig('pairplot_5.png')
     plt.show()
@@ -89,7 +89,7 @@ def system_frame_rate():
     print(f"Images transfered per second {images_per_second:.1f}")
 
     proc_time = 0.054
-    proc_per_second = 1/proc_time
+    proc_per_second = 1 / proc_time
     print(f"Images processed per second {proc_per_second:.1f}")
 
     max_fps = min(proc_per_second, images_per_second)
@@ -98,8 +98,8 @@ def system_frame_rate():
 
 # E2022
 def we_cu_change_detection():
-    name_1 = 'data\ChangeDetection\change1.png'
-    name_2 = 'data\ChangeDetection\change2.png'
+    name_1 = '..\data\ChangeDetection\change1.png'
+    name_2 = '..\data\ChangeDetection\change2.png'
 
     im_1 = io.imread(name_1)
     im_2 = io.imread(name_2)
@@ -125,7 +125,7 @@ def we_cu_change_detection():
 
 # E2022
 def linear_stretch_and_otsus():
-    name_1 = 'data\PixelWiseOps\pixelwise.png'
+    name_1 = '..\data\PixelWiseOps\pixelwise.png'
 
     im_1 = io.imread(name_1)
     im_1_g = color.rgb2gray(im_1)
@@ -158,7 +158,7 @@ def linear_stretch_and_otsus():
 
 # E2022
 def car_tracking_rgb_to_hsv_threshold():
-    name_1 = 'data\PixelWiseOps\pixelwise.png'
+    name_1 = '..\data\PixelWiseOps\pixelwise.png'
 
     im_1 = io.imread(name_1)
 
@@ -185,7 +185,7 @@ def car_tracking_rgb_to_hsv_threshold():
 
 # E2022
 def gaussian_filtering():
-    in_dir = "data/Filtering/"
+    in_dir = "../data/Filtering/"
     im_name = "rocket.png"
     im_org = io.imread(in_dir + im_name)
     io.imshow(im_org)
@@ -204,7 +204,7 @@ def gaussian_filtering():
 
 # E2022
 def edge_filtering():
-    in_dir = "data/Filtering/"
+    in_dir = "../data/Filtering/"
     im_name = "rocket.png"
     im_org = io.imread(in_dir + im_name)
     # io.imshow(im_org)
@@ -229,7 +229,7 @@ def edge_filtering():
 
 # E2022
 def blob_analysis_mini_figures():
-    in_dir = "data/BLOBs/"
+    in_dir = "../data/BLOBs/"
     im_name = "figures.png"
     im_org = io.imread(in_dir + im_name)
     im_g = color.rgb2gray(im_org)
@@ -272,7 +272,7 @@ def blob_analysis_mini_figures():
 
 # E2022
 def abdominal_analysis():
-    in_dir = "data/dicom/"
+    in_dir = "../data/dicom/"
     ct = dicom.read_file(in_dir + '1-162.dcm')
     ground_truth_img = io.imread(in_dir + 'KidneyROI.png')
 
@@ -333,7 +333,7 @@ def abdominal_analysis():
 # E2022
 # https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.rotate
 def rotate_image():
-    in_dir = "data/GeomTrans/"
+    in_dir = "../data/GeomTrans/"
     im_name = "CPHSun.png"
     im_org = io.imread(in_dir + im_name)
 
@@ -401,7 +401,7 @@ def hough_space():
 
 # E2022
 def landmark_based_registration():
-    in_dir = "data/GeomTrans/"
+    in_dir = "../data/GeomTrans/"
     src_img = io.imread(in_dir + 'rocket.png')
 
     src = np.array([[220, 55], [105, 675], [315, 675]])
@@ -505,19 +505,19 @@ def lda_classification():
 
 
 if __name__ == '__main__':
-    # abdominal_analysis()
+    abdominal_analysis()
     hough_space()
-    # shortest_path_cost()
-    # haar_feature()
-    # linear_stretch_and_otsus()
-    # edge_filtering()
-    # lda_classification()
-    # cow_sheep_classifier()
-    # blob_analysis_mini_figures()
-    # pca_on_car_data()
-    # landmark_based_registration()
-    # gaussian_filtering()
-    # rotate_image()
-    # car_tracking_rgb_to_hsv_threshold()
-    # we_cu_change_detection()
-    # system_frame_rate()
+    shortest_path_cost()
+    haar_feature()
+    linear_stretch_and_otsus()
+    edge_filtering()
+    lda_classification()
+    cow_sheep_classifier()
+    blob_analysis_mini_figures()
+    pca_on_car_data()
+    landmark_based_registration()
+    gaussian_filtering()
+    rotate_image()
+    car_tracking_rgb_to_hsv_threshold()
+    we_cu_change_detection()
+    system_frame_rate()

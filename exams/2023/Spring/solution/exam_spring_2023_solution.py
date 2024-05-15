@@ -31,7 +31,7 @@ import random
 
 # https://www.kaggle.com/datasets/uciml/glass?resource=download
 def pca_on_glass_data_F2023():
-    in_dir = "data/GlassPCA/"
+    in_dir = "../data/GlassPCA/"
     txt_name = "glass_data.txt"
 
     glass_data = np.loadtxt(in_dir + txt_name, comments="%")
@@ -73,8 +73,8 @@ def pca_on_glass_data_F2023():
     print(f"Answer: maximum absolute projected answer {max_proj_val}")
 
 def change_detection_F2023():
-    name_1 = 'data/ChangeDetection/background.png'
-    name_2 = 'data/ChangeDetection/new_frame.png'
+    name_1 = '../data/ChangeDetection/background.png'
+    name_2 = '../data/ChangeDetection/new_frame.png'
 
     im_1 = io.imread(name_1)
     im_2 = io.imread(name_2)
@@ -117,7 +117,7 @@ def system_frame_rate_F2023():
     print(f"Computed transfer speed {transfer_speed}")
 
 def nike_rgb_hsv_thresholds_F2023():
-    in_dir = "data/Pixelwise/"
+    in_dir = "../data/Pixelwise/"
     im_name = "nike.png"
     im_org = io.imread(in_dir + im_name)
     hsv_img = color.rgb2hsv(im_org)
@@ -144,7 +144,7 @@ def nike_rgb_hsv_thresholds_F2023():
 
 
 def filtering_F2023():
-    in_dir = "data/Letters/"
+    in_dir = "../data/Letters/"
     im_name = "Letters.png"
     im_org = io.imread(in_dir + im_name)
     io.imshow(im_org)
@@ -179,7 +179,7 @@ def filtering_F2023():
 
 
 def letters_blob_analysis_F2023():
-    in_dir = "data/Letters/"
+    in_dir = "../data/Letters/"
     im_name = "Letters.png"
     im_org = io.imread(in_dir + im_name)
     io.imshow(im_org)
@@ -239,7 +239,7 @@ def letters_blob_analysis_F2023():
 
 
 def kidney_pixel_analysis_F2023():
-    in_dir = "data/abdominal/"
+    in_dir = "../data/abdominal/"
     im_name = "1-166.dcm"
 
     ct = dicom.read_file(in_dir + im_name)
@@ -345,7 +345,7 @@ def kidney_pixel_analysis_F2023():
 
 # https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.rotate
 def otsu_rotate_image_F2023():
-    in_dir = "data/GeomTrans/"
+    in_dir = "../data/GeomTrans/"
     im_name = "lights.png"
     im_org = io.imread(in_dir + im_name)
 
@@ -375,7 +375,7 @@ def otsu_rotate_image_F2023():
 
 
 def landmark_based_registration_F2023():
-    in_dir = "data/LMRegistration/"
+    in_dir = "../data/LMRegistration/"
     src_img = io.imread(in_dir + 'shoe_1.png')
     dst_img = io.imread(in_dir + 'shoe_2.png')
 
@@ -473,7 +473,7 @@ def create_u_byte_image_from_vector(im_vec, height, width, channels):
 
 def do_pca_on_all_images_in_directory_F2023():
     # Find all image files in data dir
-    in_dir = "data/PizzaPCA/training/"
+    in_dir = "../data/PizzaPCA/training/"
     all_images = glob.glob(in_dir + "*.png")
     n_samples = len(all_images)
 
@@ -505,7 +505,7 @@ def do_pca_on_all_images_in_directory_F2023():
 
     # Find the missing pizza twin
     # Exercise 7 + 8
-    # im_miss = io.imread("data/pizzaPCA/super_pizza.png")
+    # im_miss = io.imread("../data/pizzaPCA/super_pizza.png")
     # im_miss_flat = im_miss.flatten()
 
     # Find pizza closest to the average pizza
@@ -651,7 +651,7 @@ def do_pca_on_all_images_in_directory_F2023():
     plt.show()
 
     # Exercise 24: Find the missing pizza twin
-    im_miss = io.imread("data/pizzaPCA/super_pizza.png")
+    im_miss = io.imread("../data/pizzaPCA/super_pizza.png")
     im_miss_flat = im_miss.flatten()
     im_miss_flat = im_miss_flat.reshape(1, -1)
     pca_coords = pizzas_pca.transform(im_miss_flat)
@@ -742,7 +742,7 @@ def create_exam_images():
 
 
 def car_rgb_hsv_thresholds():
-    in_dir = "data/"
+    in_dir = "../data/"
     im_name = "car.png"
     im_org = io.imread(in_dir + im_name)
     hsv_img = color.rgb2hsv(im_org)
@@ -781,7 +781,7 @@ def car_rgb_hsv_thresholds():
 
 
 def road_analysis():
-    in_dir = "data/"
+    in_dir = "../data/"
     im_name = "road.png"
     im_org = io.imread(in_dir + im_name)
     hsv_img = color.rgb2hsv(im_org)
@@ -808,7 +808,7 @@ def road_analysis():
 
 
 def aorta_blob_analysis():
-    in_dir = "data/"
+    in_dir = "../data/"
     im_name = "1-442.dcm"
 
     ct = dicom.read_file(in_dir + im_name)
@@ -858,7 +858,7 @@ def aorta_blob_analysis():
 
 
 def aorta_pixel_values():
-    in_dir = "data/"
+    in_dir = "../data/"
     im_name = "1-442.dcm"
 
     ct = dicom.read_file(in_dir + im_name)
@@ -1065,7 +1065,7 @@ def rgb_to_hsv_threshold():
 
 
 def gaussian_filtering():
-    in_dir = "data/Filtering/"
+    in_dir = "../data/Filtering/"
     im_name = "rocket.png"
     im_org = io.imread(in_dir + im_name)
     io.imshow(im_org)
@@ -1083,7 +1083,7 @@ def gaussian_filtering():
 
 
 def edge_filtering():
-    in_dir = "data/Filtering/"
+    in_dir = "../data/Filtering/"
     im_name = "rocket.png"
     im_org = io.imread(in_dir + im_name)
     # io.imshow(im_org)
@@ -1107,7 +1107,7 @@ def edge_filtering():
 
 
 def blob_analysis():
-    in_dir = "data/BLOBs/"
+    in_dir = "../data/BLOBs/"
     im_name = "figures.png"
     im_org = io.imread(in_dir + im_name)
     # io.imshow(im_org)
@@ -1152,7 +1152,7 @@ def blob_analysis():
 
 
 def multi_organ_exploration():
-    in_dir = "data/dicom/"
+    in_dir = "../data/dicom/"
     ct = dicom.read_file(in_dir + '1-162.dcm')
     ground_truth_img = io.imread(in_dir + 'KidneyROI.png')
 
@@ -1227,7 +1227,7 @@ def multi_organ_exploration():
 
 # https://scikit-image.org/docs/stable/api/skimage.transform.html#skimage.transform.rotate
 def rotate_image():
-    in_dir = "data/GeomTrans/"
+    in_dir = "../data/GeomTrans/"
     im_name = "CPHSun.png"
     im_org = io.imread(in_dir + im_name)
 
@@ -1291,7 +1291,7 @@ def hough_space():
 
 
 def landmark_based_registration():
-    in_dir = "data/GeomTrans/"
+    in_dir = "../data/GeomTrans/"
     src_img = io.imread(in_dir + 'rocket.png')
 
     # src = np.array([[55, 220], [675, 105], [675, 315]])
@@ -1397,13 +1397,13 @@ def lda_classification():
 
 
 if __name__ == '__main__':
-    # pca_on_glass_data_F2023()
-    # change_detection_F2023()
-    # system_frame_rate_F2023()
-    # nike_rgb_hsv_thresholds_F2023()
-    # filtering_F2023()
-    # letters_blob_analysis_F2023()
-    # kidney_pixel_analysis_F2023()
-    # otsu_rotate_image_F2023()
-    # landmark_based_registration_F2023()
+    pca_on_glass_data_F2023()
+    change_detection_F2023()
+    system_frame_rate_F2023()
+    nike_rgb_hsv_thresholds_F2023()
+    filtering_F2023()
+    letters_blob_analysis_F2023()
+    kidney_pixel_analysis_F2023()
+    otsu_rotate_image_F2023()
+    landmark_based_registration_F2023()
     do_pca_on_all_images_in_directory_F2023()
